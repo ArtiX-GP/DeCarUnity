@@ -3,18 +3,14 @@ using UnityEngine;
 using System;
 using System.IO;
 
-public static class BuildWin
+class BuildWin
 {
 	static void BuildWindows()
 	{
 		var folderName = "Build-Windows";
-		DeleteFolder (folderName);
-		CreateFolder (folderName);
-		string error = BuildPipeline.BuildPlayer(GetScenes(), folderName, BuildTarget.StandaloneWindows, BuildOptions.None).ToString();
-		if (error != null && error.Length > 0)
-		{
-			throw new Exception("Build failed: " + error);
-		}
+		//DeleteFolder (folderName);
+		//CreateFolder (folderName);
+		BuildPipeline.BuildPlayer(GetScenes(), folderName, BuildTarget.StandaloneWindows64, BuildOptions.None);
 	}
 
 	static void CreateFolder(string name)
